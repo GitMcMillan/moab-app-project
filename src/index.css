@@ -18,6 +18,10 @@ code {
   text-align: center;
 }
 
+.footer {
+  text-align: center;
+}
+
 .dishes {
   list-style: none;
   display: grid;

@@ -67,7 +67,12 @@ function App() {
   );
 
   function Header() {
-    return <div className="header">This is the header</div>;
+    return (
+      <div className="header">
+        <img src="/pics/Marquee.jpg" alt="marquee" />
+        <h1>Meal On A Bun</h1>
+      </div>
+    );
   }
 
   function Menu({ menu }) {
@@ -95,12 +100,18 @@ function App() {
         <h2>{description}</h2>
         <img src={img} alt={name} className="dish-img" />
         <h2>{price}</h2>
+        <button type="text">+</button> Add to Order
+        <p>
+          <button type="text">-</button> Remove from Order
+        </p>
       </li>
     );
   }
 
+  function orderWindow() {}
+
   function Footer() {
-    return <div>This is the footer</div>;
+    return <div className="footer">This is the footer</div>;
   }
 }
 
