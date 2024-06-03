@@ -11,7 +11,7 @@ const menuData = [
     description:
       "100% certified angus beef ¼ pound seasoned patty, mayonnaise, mustard, lettuce, tomato, onion, pickles, and a sesame seed bun. (Add cheese for $0.50)",
     price: 13,
-    img: "/pics/the52.jpg",
+    img: "/pics/moab.jpg",
   },
   {
     name: "Western M.O.A.B.",
@@ -67,13 +67,13 @@ function App() {
   );
 
   function Header() {
-    return <div>This is the header</div>;
+    return <div className="header">This is the header</div>;
   }
 
   function Menu({ menu }) {
     return (
       <div>
-        <ul>
+        <ul className="dishes">
           {menu.map((dish) => (
             <MenuItem
               name={dish.name}
@@ -90,14 +90,12 @@ function App() {
 
   function MenuItem({ name, description, price, img }) {
     return (
-      <div>
-        <li>
-          <h1>{name}</h1>
-          <h2>{description}</h2>
-          <img src={img} alt={name} />
-          <h2>{price}</h2>
-        </li>
-      </div>
+      <li>
+        <h1>{name}</h1>
+        <h2>{description}</h2>
+        <img src={img} alt={name} className="dish-img" />
+        <h2>{price}</h2>
+      </li>
     );
   }
 
