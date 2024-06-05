@@ -1,3 +1,6 @@
+import React from "react";
+import { useState } from "react";
+
 const menuData = [
   {
     name: "52 M.O.A.B",
@@ -58,10 +61,15 @@ const menuData = [
 ];
 
 function App() {
+  const [order, setOrder] = useState([]);
+
+  function HandleOrder(name) {}
+
   return (
     <div>
       <Header />
-      <Menu menu={menuData} />
+      <Menu menu={menuData} setOrder={setOrder} />
+      <OrderWindow order={order} />
       <Footer />
     </div>
   );
@@ -75,7 +83,7 @@ function App() {
     );
   }
 
-  function Menu({ menu }) {
+  function Menu({ menu, setOrder }) {
     return (
       <div>
         <ul className="dishes">
@@ -86,6 +94,7 @@ function App() {
               price={dish.price}
               img={dish.img}
               key={dish.name}
+              setOrder={setOrder}
             />
           ))}
         </ul>
@@ -93,14 +102,17 @@ function App() {
     );
   }
 
-  function MenuItem({ name, description, price, img }) {
+  function MenuItem({ name, description, price, img, setOrder }) {
     return (
       <li>
         <h1>{name}</h1>
-        <h2>{description}</h2>
+        <h2 className="description">{description}</h2>
         <img src={img} alt={name} className="dish-img" />
         <h2>{price}</h2>
-        <button type="text">+</button> Add to Order
+        <button type="text" onClick={() => setOrder(1)}>
+          +
+        </button>{" "}
+        Add to Order
         <p>
           <button type="text">-</button> Remove from Order
         </p>
@@ -108,7 +120,14 @@ function App() {
     );
   }
 
-  function orderWindow() {}
+  function OrderWindow({ order }) {
+    return (
+      <form className="order-window">
+        <h1>Your Order</h1>
+        <h2># {order}</h2>
+      </form>
+    );
+  }
 
   function Footer() {
     return <div className="footer">This is the footer</div>;
