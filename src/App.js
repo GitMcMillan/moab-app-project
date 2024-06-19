@@ -1,75 +1,15 @@
-import React, { useState } from "react";
-
-const menuData = [
-  {
-    id: 1,
-    name: "52 M.O.A.B",
-    description:
-      "100% certified angus beef ¼ pound seasoned patty, house made burger sauce, american cheese, swiss cheese, bacon, lettuce, tomato, onion, pickles and a sesame seed bun.",
-    price: 13,
-    img: "/pics/Burger1.jpg",
-  },
-  {
-    id: 2,
-    name: "M.O.A.B.",
-    description:
-      "100% certified angus beef ¼ pound seasoned patty, mayonnaise, mustard, lettuce, tomato, onion, pickles, and a sesame seed bun. (Add cheese for $0.50)",
-    price: 13,
-    img: "/pics/moab.jpg",
-  },
-  {
-    id: 3,
-    name: "Western M.O.A.B.",
-    description:
-      "100% certified angus beef ¼ pound seasoned patty, onion rings, bacon, american cheese, lettuce, tomato, pickle, bbq sauce, mayonnaise, and a brioche bun.",
-    price: 13,
-    img: "/pics/western.jpg",
-  },
-  {
-    id: 4,
-    name: "The Angry Eddie",
-    description:
-      "100% certified angus beef ¼ pound seasoned patty, jalapenos, american cheese, burger sauce, spicy that guy sauce, lettuce, tomato, onion, and a sesame seed bun.",
-    price: 13,
-    img: "/pics/Angry.jpg",
-  },
-  {
-    id: 5,
-    name: "Chicago Style Hot Dog",
-    description:
-      "Deep fried all beef hot dog, american cheese, lettuce, tomato, onion, pickles, and burger sauce on a buttered and toasted hoagie.",
-    price: 13,
-    img: "/pics/Chicagodog.jpg",
-  },
-  {
-    id: 6,
-    name: "Philly Cheese Steak",
-    description:
-      "Grilled steak, swiss cheese, grilled bell peppers and onions, mayonnaise, bbq ranch sauce served on a haogie roll.",
-    price: 13,
-    img: "/pics/philly.jpg",
-  },
-  {
-    id: 7,
-    name: "Steak & Mushroom",
-    description:
-      "Grilled steak, swiss cheese, grilled mushrooms and onions, mayonnaise, and bbq ranch sauce served on a hoagie roll.",
-    price: 13,
-    img: "/pics/steaknshroom.jpg",
-  },
-  {
-    id: 8,
-    name: "Patty Melt",
-    description:
-      "100% certified angus beef ¼ pound seasoned patty, swiss cheese, grilled onions, burger sauce, and grilled sourdough",
-    price: 13,
-    img: "/pics/patty.jpg",
-  },
-];
+import React, { useEffect, useState } from "react";
 
 function App() {
   const [bill, setBill] = useState(0);
   const [order, setOrder] = useState([]);
+  const [menu, setMenu] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/menuData")
+      .then((r) => r.json())
+      .then((data) => setMenu(data));
+  }, []);
 
   function handleOrderClick(orderItem) {
     setOrder([...order, orderItem]);
@@ -87,7 +27,7 @@ function App() {
     <div>
       <Header />
       <Menu
-        menu={menuData}
+        menu={menu}
         handleOrderClick={handleOrderClick}
         handleRemoveOrder={handleRemoveOrder}
       />
