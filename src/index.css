@@ -45,3 +45,7 @@ code {
   font-style: italic;
   margin-bottom: auto;
 }
+
+.newitemForm {
+  text-align: center;
+}
