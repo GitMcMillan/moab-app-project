@@ -49,3 +49,10 @@ code {
 .newitemForm {
   text-align: center;
 }
+
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
