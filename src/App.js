@@ -113,8 +113,7 @@ function App() {
         name: dishName,
         description: description,
         price: price,
-        image:
-          "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
+        img: "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
       };
       fetch("http://127.0.0.1:3000/menuData", {
         method: "POST",

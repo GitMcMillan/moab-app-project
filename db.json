@@ -47,6 +47,13 @@
       "description": "100% certified angus beef ¼ pound seasoned patty, swiss cheese, grilled onions, burger sauce, and grilled sourdough",
       "price": 13,
       "img": "/pics/patty.jpg"
+    },
+    {
+      "id": "1c2ba161-4e78-4a29-90d7-fda488103946",
+      "name": "THE BIG OLD BURGER",
+      "description": "A Delicious Creation",
+      "price": 13,
+      "img": "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg"
     }
   ]
 }
