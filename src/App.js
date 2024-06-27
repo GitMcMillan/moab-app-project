@@ -25,7 +25,7 @@ function App() {
     if (orderItemIndex !== -1) {
       const orderItem = order[orderItemIndex];
       const newOrder = [...order];
-      newOrder.splice(orderItemIndex, 1); // Remove the specific item
+      newOrder.splice(orderItemIndex, 1);
       setOrder(newOrder);
       setBill((prevBill) => Math.max(prevBill - orderItem.price, 0));
     }
@@ -77,7 +77,7 @@ function App() {
         <h1>{item.name}</h1>
         <h2 className="description">{item.description}</h2>
         <img src={item.img} alt={item.name} className="dish-img" />
-        <h2>{item.price}</h2>
+        <h2>${item.price}</h2>
         <button type="button" onClick={() => handleOrderClick(item)}>
           + Add to Order
         </button>
@@ -93,7 +93,6 @@ function App() {
       <div>
         <p>
           <h2>
-            {" "}
             {item.name} - ${item.price}
           </h2>
         </p>
