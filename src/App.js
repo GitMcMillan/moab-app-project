@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Header from "./Header";
 
 function App() {
   const [bill, setBill] = useState(0);
@@ -44,15 +45,6 @@ function App() {
       <Footer />
     </div>
   );
-
-  function Header() {
-    return (
-      <div className="header">
-        <img src="/pics/Marquee.jpg" alt="marquee" />
-        <h1>Meal On A Bun</h1>
-      </div>
-    );
-  }
 
   function Menu({ menu, handleOrderClick, handleRemoveOrder }) {
     return (
