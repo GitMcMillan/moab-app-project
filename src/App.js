@@ -18,8 +18,6 @@ function App() {
   }, []);
 
   function handleOrderClick(orderItem) {
-    const orderItemId = { ...orderItem, uniqueID: uuidv4() };
-    setOrder([...order, orderItemId]);
     setBill((prevBill) => prevBill + orderItem.price);
   }
 
