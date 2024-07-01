@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
 import Menu from "./Menu";
 import NewItemForm from "./NewItemForm";
@@ -17,6 +18,7 @@ function App() {
   }, []);
 
   function handleOrderClick(orderItem) {
+    setOrder([...order, orderItem]);
     setBill((prevBill) => prevBill + orderItem.price);
   }
 
