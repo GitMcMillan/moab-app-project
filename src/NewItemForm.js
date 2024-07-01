@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
-function NewItemForm({ setMenu, uuidv4 }) {
+function NewItemForm({ setMenu }) {
   const [dishName, setDishName] = useState("");
   const [price, setPrice] = useState(13);
   const [description, setDescription] = useState("A Delicious Creation");
@@ -9,12 +8,14 @@ function NewItemForm({ setMenu, uuidv4 }) {
   function handleSubmit(e) {
     e.preventDefault();
     const newItem = {
-      id: uuidv4(),
       name: dishName,
       description: description,
       price: price,
       img: "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
     };
+
+    console.log("Submitting new item:", newItem);
+
     fetch("http://127.0.0.1:3000/menuData", {
       method: "POST",
       headers: {
@@ -23,6 +24,7 @@ function NewItemForm({ setMenu, uuidv4 }) {
       body: JSON.stringify(newItem),
     })
       .then((response) => {
+        console.log("Response received:", response);
         if (!response.ok) {
           return response.text().then((text) => {
             throw new Error(text);
@@ -31,6 +33,7 @@ function NewItemForm({ setMenu, uuidv4 }) {
         return response.json();
       })
       .then((data) => {
+        console.log("Data received:", data);
         setMenu((prevMenu) => [...prevMenu, data]);
       })
       .catch((error) => {
@@ -71,7 +74,7 @@ function NewItemForm({ setMenu, uuidv4 }) {
           />
         </label>
         <p>
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </p>
       </form>
     </div>
