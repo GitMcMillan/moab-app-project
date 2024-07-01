@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
 import Menu from "./Menu";
 import NewItemForm from "./NewItemForm";
+import OrderWindow from "./OrderWindow";
+import Footer from "./Footer";
 
 function App() {
   const [bill, setBill] = useState(0);
@@ -45,66 +47,6 @@ function App() {
       <NewItemForm setMenu={setMenu} />
       <OrderWindow bill={bill} order={order} />
       <Footer />
-    </div>
-  );
-
-  function OrderItem({ item }) {
-    return (
-      <div>
-        <p>
-          <h2>
-            {item.name} - ${item.price}
-          </h2>
-        </p>
-      </div>
-    );
-  }
-
-  function OrderWindow({ bill, order }) {
-    return (
-      <form className="order-window">
-        <h1>Your Order</h1>
-        {order.map((item) => (
-          <OrderItem key={item.name} item={item} />
-        ))}
-        <h2>${bill}.00</h2>
-      </form>
-    );
-  }
-
-  function Footer() {
-    const hour = new Date().getHours();
-    const openHour = 10;
-    const closeHour = 23;
-    const isOpen = hour >= openHour && hour <= closeHour;
-
-    return (
-      <footer className="footer">
-        {isOpen ? (
-          <Hours closeHour={closeHour} openHour={openHour} />
-        ) : (
-          <p>
-            We're happy to welcome you between {openHour}:00 and {closeHour}:00
-          </p>
-        )}
-      </footer>
-    );
-  }
-}
-
-function convertHours(hour) {
-  const ampm = hour >= 12 ? "PM" : "AM";
-  const adjustedHour = hour % 12 || 12;
-  return `${adjustedHour} ${ampm}`;
-}
-
-function Hours({ closeHour, openHour }) {
-  return (
-    <div className="hours">
-      <p>
-        We're open from {convertHours(openHour)} to {convertHours(closeHour)}.
-        Come visit us or order online.
-      </p>
     </div>
   );
 }

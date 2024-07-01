@@ -55,13 +55,6 @@
       "description": "100% certified angus beef ¼ pound seasoned patty, swiss cheese, grilled onions, burger sauce, and grilled sourdough",
       "price": 13,
       "img": "/pics/patty.jpg"
-    },
-    {
-      "name": "csa",
-      "description": "A Delicious Creation",
-      "price": 13,
-      "img": "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
-      "id": 9
     }
   ]
 }
