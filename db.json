@@ -57,46 +57,11 @@
       "img": "/pics/patty.jpg"
     },
     {
-      "name": "csacas",
+      "name": "bvurger",
       "description": "A Delicious Creation",
       "price": 13,
       "img": "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
       "id": 9
-    },
-    {
-      "name": "csacas",
-      "description": "A Delicious Creation",
-      "price": 13,
-      "img": "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
-      "id": 10
-    },
-    {
-      "name": "csacas",
-      "description": "A Delicious Creation",
-      "price": 13,
-      "img": "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
-      "id": 11
-    },
-    {
-      "name": "csacas",
-      "description": "A Delicious Creation",
-      "price": 13,
-      "img": "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
-      "id": 12
-    },
-    {
-      "name": "csacas",
-      "description": "A Delicious Creation",
-      "price": 13,
-      "img": "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
-      "id": 13
-    },
-    {
-      "name": "csacas",
-      "description": "A Delicious Creation",
-      "price": 13,
-      "img": "https://roadfood.com/wp-content/uploads/2022/03/Hodad-double-cheeseburger.jpg",
-      "id": 14
     }
   ]
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import Menu from "./Menu";
 import NewItemForm from "./NewItemForm";
@@ -28,9 +28,7 @@ function App() {
     );
     if (orderItemIndex !== -1) {
       const orderItem = order[orderItemIndex];
-      const newOrder = [...order];
-      newOrder.splice(orderItemIndex, 1);
-      setOrder(newOrder);
+      setOrder(order.filter((item, index) => index !== orderItemIndex));
       setBill((prevBill) => Math.max(prevBill - orderItem.price, 0));
     }
   }
@@ -38,13 +36,23 @@ function App() {
   return (
     <div>
       <Header />
-      <Menu
-        menu={menu}
-        handleOrderClick={handleOrderClick}
-        handleRemoveOrder={handleRemoveOrder}
-      />
-      <NewItemForm setMenu={setMenu} />
-      <OrderWindow bill={bill} order={order} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Menu
+              menu={menu}
+              handleOrderClick={handleOrderClick}
+              handleRemoveOrder={handleRemoveOrder}
+            />
+          }
+        />
+        <Route path="/new-item" element={<NewItemForm setMenu={setMenu} />} />
+        <Route
+          path="/order"
+          element={<OrderWindow bill={bill} order={order} />}
+        />
+      </Routes>
       <Footer />
     </div>
   );
