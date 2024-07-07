@@ -10,6 +10,7 @@ function App() {
   const [bill, setBill] = useState(0);
   const [order, setOrder] = useState([]);
   const [menu, setMenu] = useState([]);
+  const [displayWholeApp, setDisplayWholeApp] = useState("true");
 
   useEffect(() => {
     fetch("http://localhost:3000/menuData")
@@ -23,14 +24,17 @@ function App() {
   }
 
   function handleRemoveOrder(uniqueId) {
-    const orderItemIndex = order.findIndex(
-      (item) => item.uniqueId === uniqueId
-    );
-    if (orderItemIndex !== -1) {
-      const orderItem = order[orderItemIndex];
-      setOrder(order.filter((item, index) => index !== orderItemIndex));
-      setBill((prevBill) => Math.max(prevBill - orderItem.price, 0));
-    }
+    setOrder((prevOrder) => {
+      const updatedOrder = prevOrder.filter((item, i, arr) => {
+        if (item.uniqueId === uniqueId && !arr.removed) {
+          setBill((prevBill) => Math.max(prevBill - item.price, 0));
+          arr.removed = true;
+          return false;
+        }
+        return true;
+      });
+      return updatedOrder;
+    });
   }
 
   return (
